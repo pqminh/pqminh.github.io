@@ -1,1 +1,36 @@
-Minh's project
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Notification demo</title>
+<meta name="description" content="" />
+<meta name="author" content="Notification" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex, nofollow" />
+<style>
+	button {
+			width: 100px;
+			height: 44px;
+	}
+</style>
+
+</head>
+<body>
+  <h1>Notification demo</h1>
+	<input placeholder="title" id="title" />
+  <button id="notify-button">Notify me!</button>
+  <script>
+	// following https://www.w3.org/TR/notifications
+    document.getElementById('my-button').addEventListener('click', function () {
+			var notification = new Notification($('#title'), {
+			  tag: "this is tag",
+			  icon: "http://media.beat.vn/image/1608/cd7ab423619d5006214134f9dd6306a4.jpg",
+			  body: "this is body"
+			}).onshow = function() { setTimeout(notification.close, 1000) }
+			notification.onclick = function(){
+				window.open('https://github.com/pqminh/');
+			}
+    }, false);
+  </script>
+</body>
+</html>
