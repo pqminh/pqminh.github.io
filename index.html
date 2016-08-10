@@ -18,14 +18,20 @@
 <body>
   <h1>Notification demo</h1>
 	<input placeholder="title" id="title" />
+	<input placeholder="body" id="body" />
+	<input placeholder="icon url" id="icon" />
+
   <button id="notify-button">Notify me!</button>
   <script>
 	// following https://www.w3.org/TR/notifications
-    document.getElementById('my-button').addEventListener('click', function () {
-			var notification = new Notification($('#title'), {
+    document.getElementById('notify-button').addEventListener('click', function () {
+			var title = document.getElementById('title').value;
+			var body = document.getElementById('body').value;
+			var icon = document.getElementById('icon').value;
+			var notification = new Notification(body || 'This is title', {
 			  tag: "this is tag",
-			  icon: "http://media.beat.vn/image/1608/cd7ab423619d5006214134f9dd6306a4.jpg",
-			  body: "this is body"
+			  icon: icon || "https://pixabay.com/static/uploads/photo/2015/12/16/17/41/bell-1096280_960_720.png",
+			  body: body || "this is body"
 			}).onshow = function() { setTimeout(notification.close, 1000) }
 			notification.onclick = function(){
 				window.open('https://github.com/pqminh/');
