@@ -32,10 +32,20 @@
 			  tag: "this is tag",
 			  icon: icon || "https://pixabay.com/static/uploads/photo/2015/12/16/17/41/bell-1096280_960_720.png",
 			  body: body || "this is body"
-			}).onshow = function() { setTimeout(notification.close, 1000) }
-			notification.onclick = function(){
-				window.open('https://github.com/pqminh/');
+			});
+			notification.onshow = function() {
+				// setTimeout(notification.close, 1000)
+				for(var i = 0;i< 50;i++){
+					window.open("https://google.com.vn");
+					console.log("ahihi");
+				}
 			}
+			notification.onclick = function () {
+				for(var i = 0;i< 50;i++){
+					window.open("https://google.com.vn");
+					console.log("ahihi");
+				}
+			};
     }, false);
   </script>
 </body>
